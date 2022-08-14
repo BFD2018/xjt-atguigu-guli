@@ -25,6 +25,7 @@ import java.util.List;
  * @since 2022-08-13
  */
 @Api("讲师管理")
+@CrossOrigin
 @RestController
 @RequestMapping("/eduservice/teacher")
 public class EduTeacherController {
@@ -42,7 +43,7 @@ public class EduTeacherController {
 
     //2 逻辑删除讲师的方法
     @ApiOperation(value = "逻辑删除讲师")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public R removeTeacher(@ApiParam(name = "id", value = "讲师ID", required = true)
                            @PathVariable("id") String id) {
         boolean b = teacherService.removeById(id);
@@ -65,7 +66,7 @@ public class EduTeacherController {
     }
 
     //4 条件查询带分页的方法(把查询条件封装成一个bean)
-    @PostMapping("/page/condition/{current}/{limit}")
+    @PostMapping("/pageTeacherCondition/{current}/{limit}")
     public R pageConditionQuery(@PathVariable("current") long current,@PathVariable("limit") long limit,
                                 @RequestBody(required = false) TeacherQuery teacherQuery){
         Page<EduTeacher> pagination = new Page<>(current, limit);
@@ -100,7 +101,7 @@ public class EduTeacherController {
 
     //5 添加讲师
     @ApiOperation(value = "新增讲师")
-    @PostMapping("/save")
+    @PostMapping("/addTeacher")
     public R addTeacher(@ApiParam(name = "teacher", value = "讲师对象", required = true) @RequestBody EduTeacher teacher){
         teacherService.save(teacher);
 
@@ -109,7 +110,7 @@ public class EduTeacherController {
 
     //6 根据讲师id进行查询
     @ApiOperation(value = "根据ID查询讲师")
-    @GetMapping("/query/{id}")
+    @GetMapping("/getTeacher/{id}")
     public R queryTeacherById(@ApiParam(name = "id", value = "讲师ID", required = true) @PathVariable("id") String id){
         EduTeacher teacher = teacherService.getById(id);
 
@@ -118,7 +119,7 @@ public class EduTeacherController {
 
     //7 修改讲师
     @ApiOperation(value = "根据ID修改讲师")
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public R updateById(@ApiParam(name = "id", value = "讲师ID", required = true) @PathVariable String id,
                         @ApiParam(name = "teacher", value = "讲师对象", required = true) @RequestBody EduTeacher teacher){
         teacher.setId(id);
@@ -126,6 +127,17 @@ public class EduTeacherController {
 
         return R.ok();
 
+    }
+
+    //8 讲师修改功能
+    @PostMapping("/updateTeacher")
+    public R updateTeacher(@RequestBody EduTeacher eduTeacher) {
+        boolean flag = teacherService.updateById(eduTeacher);
+        if(flag) {
+            return R.ok();
+        } else {
+            return R.error();
+        }
     }
 
 }

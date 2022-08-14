@@ -7,7 +7,7 @@ export default {
       //url: '/eduservice/teacher/pageTeacherCondition/'+current+"/"+limit,
       url: `/eduservice/teacher/pageTeacherCondition/${current}/${limit}`,
       method: 'post',
-      //teacherQuery条件对象，后端使用RequestBody获取数据
+      //teacherQuery查询条件对象 --->json，后端使用RequestBody获取数据
       //data表示把对象转换json进行传递到接口里面
       data: teacherQuery
     })

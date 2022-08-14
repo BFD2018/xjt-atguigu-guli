@@ -10,6 +10,7 @@
         <module name="service-vod" />
         <module name="service-edu" />
         <module name="common-utils" />
+        <module name="service-oss" />
         <module name="service-base" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="service" target="1.8" />
       <module name="service-base" target="1.8" />
       <module name="service-edu" target="1.8" />
+      <module name="service-oss" target="1.8" />
       <module name="service-vod" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -29,6 +31,7 @@
       <module name="common-utils" options="-parameters" />
       <module name="service-base" options="-parameters" />
       <module name="service-edu" options="-parameters" />
+      <module name="service-oss" options="-parameters" />
       <module name="service-vod" options="-parameters" />
     </option>
   </component>

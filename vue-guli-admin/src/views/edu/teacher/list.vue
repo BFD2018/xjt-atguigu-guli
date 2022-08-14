@@ -99,12 +99,12 @@
         total: 0, // 总记录数
         page: 1, // 页码
         limit: 10, // 每页记录数
-        searchObj: {}// 查询条件
+
+        teacherQuery:{} //条件封装对象
       }
     },
 
     created() { //页面渲染之前执行，一般调用methods定义的方法
-      //调用
       this.getList()
     },
     methods: {
@@ -112,13 +112,10 @@
       getList(page=1) {
         this.page = page
         teacher.getTeacherListPage(this.page,this.limit,this.teacherQuery)
-          .then(response =>{//请求成功
-            //response接口返回的数据
-            //console.log(response)
+          .then(response =>{
+            console.log(response)
             this.list = response.data.rows
             this.total = response.data.total
-            console.log(this.list)
-            console.log(this.total)
           })
       },
       resetData() {//清空的方法
