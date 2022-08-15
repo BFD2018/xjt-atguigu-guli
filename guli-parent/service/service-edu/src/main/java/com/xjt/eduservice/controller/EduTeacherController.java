@@ -34,11 +34,11 @@ public class EduTeacherController {
 
     //获取所有老师信息
     @ApiOperation(value = "所有讲师列表")
-    @GetMapping("/findall")
-    public Object getAllTeacher(){
+    @GetMapping("/findAll")
+    public R getAllTeacher(){
         List<EduTeacher> list = teacherService.list();
 
-        return list;
+        return R.ok().data("teacherList",list);
     }
 
     //2 逻辑删除讲师的方法

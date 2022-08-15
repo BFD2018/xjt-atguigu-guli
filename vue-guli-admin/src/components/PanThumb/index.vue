@@ -15,6 +15,7 @@ export default {
   props: {
     image: {
       type: String,
+      default: "",
       required: true
     },
     zIndex: {
