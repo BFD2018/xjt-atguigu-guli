@@ -70,7 +70,7 @@
           level: 1,
           career: '',
           intro: '',
-          avatar: ''
+          avatar: "https://pic.rmb.bdstatic.com/bjh/efef2d90c3b77a8e9f869cf8df69123b.png"   //默认头像
         },
 
         //上传弹框组件是否显示

@@ -28,7 +28,7 @@ import java.util.List;
 @Service
 public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChapter> implements EduChapterService {
     @Autowired
-    private EduVideoService videoService;
+    private EduVideoService eduVideoService;
 
     //课程大纲列表,根据课程id进行查询
     @Override
@@ -41,7 +41,7 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         //2 根据课程id查询课程里面所有的小节
         QueryWrapper<EduVideo> wrapperVideo = new QueryWrapper<>();
         wrapperVideo.eq("course_id",courseId);
-        List<EduVideo> eduVideoList = videoService.list(wrapperVideo);
+        List<EduVideo> eduVideoList = eduVideoService.list(wrapperVideo);
 
         //创建list集合，用于最终封装数据
         List<ChapterVo> finalList = new ArrayList<>();
@@ -85,7 +85,7 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         //根据chapterid章节id 查询小节表，如果查询数据，不进行删除
         QueryWrapper<EduVideo> wrapper = new QueryWrapper<>();
         wrapper.eq("chapter_id",chapterId);
-        int count = videoService.count(wrapper);
+        int count = eduVideoService.count(wrapper);
         //判断
         if(count >0) {//查询出小节，不进行删除
             throw new GuliException(20001,"不能删除");

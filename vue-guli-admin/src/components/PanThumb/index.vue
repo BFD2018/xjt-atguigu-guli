@@ -15,7 +15,7 @@ export default {
   props: {
     image: {
       type: String,
-      default: "",
+      default: "https://pic.rmb.bdstatic.com/bjh/efef2d90c3b77a8e9f869cf8df69123b.png",
       required: true
     },
     zIndex: {

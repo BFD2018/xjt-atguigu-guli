@@ -159,10 +159,25 @@
         this.$message.warning('想要重新上传视频，请先删除已上传的视频')
       },
       handleVodRemove(){
-        // TODO
+        //调用接口的删除视频的方法
+        video.deleteAliyunvod(this.video.videoSourceId)
+          .then(response => {
+            //提示信息
+            this.$message({
+              type: 'success',
+              message: '删除视频成功!'
+            });
+            //把文件列表清空
+            this.fileList = []
+            //把video视频id和视频名称值清空
+            //上传视频id赋值
+            this.video.videoSourceId = ''
+            //上传视频名称赋值
+            this.video.videoOriginalName = ''
+          })
       },
       beforeVodRemove(){
-        // TODO
+        return this.$confirm(`确定移除 ${ file.name }？`);
       },
 
       //==============================小节操作====================================
@@ -173,7 +188,7 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {  //点击确定，执行then方法
-          //调用删除的方法
+          //调用删除小节的方法-->连同视频一起删除
           video.deleteVideo(id)
             .then(response => {//删除成功
               //提示信息
