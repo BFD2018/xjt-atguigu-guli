@@ -8,8 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"com.xjt"}) //指定扫描位置
 @MapperScan("com.xjt.educms.mapper")
 @SpringBootApplication
-public class ClientManageSystemsApplication {
+public class CmsApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ClientManageSystemsApplication.class,args);
+        SpringApplication.run(CmsApplication.class,args);
     }
 }

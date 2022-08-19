@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-sdk-vod-upload</artifactId>
-            <version>${aliyun-java-vod-upload.version}</version>
+            <version>1.4.11</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
