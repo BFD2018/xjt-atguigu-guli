@@ -32,7 +32,7 @@
           <div>
             <article class="comm-course-list">
               <ul class="of" id="bna">
-                <li v-for="course in eduList" :key="course.id">
+                <li v-for="course in eduList" :key="course.id" class="bna-item">
                   <div class="cc-l-wrap">
                     <section class="course-img">
                       <img :src="course.cover" class="img-responsive" :alt="course.title" />
@@ -40,13 +40,9 @@
                         <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
                       </div>
                     </section>
-                    <h3 class="hLh30 txtOf mt10">
-                      <a
-                        href="#"
-                        :title="course.title"
-                        class="course-title fsize18 c-333"
-                      >{{course.title}}</a>
-                    </h3>
+                    <div class="hLh30 txtOf mt10" style="font-size: 18px;font-weight: bold;color: #ff7f50;margin-top: 10px;margin-bottom: 10px;">
+                      {{course.title}}
+                    </div>
                     <section class="mt10 hLh20 of">
                       <span class="fr jgTag bg-green" v-if="Number(course.price) === 0">
                         <i class="c-fff fsize12 f-fA">免费</i>
@@ -165,3 +161,26 @@ export default {
   }
 };
 </script>
+<style scoped>
+  #bna{
+    width: 100%;
+    display: grid;
+    /* 声明列的宽度,数字3表示的重复3次，即有3列宽度为200px*/
+    grid-template-columns: repeat(4,23%);
+    /* 声明行间距和列间距 */
+    grid-gap: 20px;
+  }
+  .bna-item{
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .bna-item .cc-l-wrap{
+    width: 100%;
+  }
+  .bna-item .img-responsive{
+    width: 100%;
+    height: auto;
+  }
+</style>

@@ -12,4 +12,17 @@
                    LEFT OUTER JOIN edu_subject es2 ON ec.subject_id=es2.id
         WHERE ec.id=#{courseId}
     </select>
+
+    <select id="getBaseCourseInfo" resultType="com.xjt.eduservice.entity.frontvo.CourseWebVo">
+        SELECT ec.id,ec.title,ec.price,ec.lesson_num AS lessonNum,ec.cover,ec.buy_count as buyCount,ec.view_count as viewCount,
+                ecd.description,
+               et.id as teacherId,et.name As teacherName,et.intro,et.avatar,
+               es1.parent_id as subjectLevelOneId,es1.title AS subjectLevelOne,
+               es1.id as subjectLevelTwoId,es2.title AS subjectLevelTwo
+        FROM edu_course ec LEFT OUTER JOIN edu_course_description ecd ON ec.id=ecd.id
+                           LEFT OUTER JOIN edu_teacher et ON ec.teacher_id=et.id
+                           LEFT OUTER JOIN edu_subject es1 ON ec.subject_parent_id=es1.id
+                   LEFT OUTER JOIN edu_subject es2 ON ec.subject_id=es2.id
+        WHERE ec.id=#{courseId}
+    </select>
 </mapper>

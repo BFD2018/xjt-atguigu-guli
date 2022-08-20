@@ -49,12 +49,20 @@ export default {
       method: 'post'
     })
   },
-  //TODO 课程列表
-  //课程最终发布
+
+  //课程列表
   getListCourse() {
     return request({
       url: '/eduservice/course',
       method: 'get'
+    })
+  },
+
+  //根据id删除课程
+  deleteCourseById(id) {
+    return request({
+      url: '/eduservice/course/' + id,
+      method: 'delete'
     })
   }
 }

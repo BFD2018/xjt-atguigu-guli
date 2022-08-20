@@ -94,7 +94,8 @@
                 支持3GP、ASF、AVI、DAT、DV、FLV、F4V、<br>
                 GIF、M2T、M4V、MJ2、MJPEG、MKV、MOV、MP4、<br>
                 MPE、MPG、MPEG、MTS、OGG、QT、RM、RMVB、<br>
-                SWF、TS、VOB、WMV、WEBM 等视频格式上传</div>
+                SWF、TS、VOB、WMV、WEBM 等视频格式上传
+              </div>
               <i class="el-icon-question"/>
             </el-tooltip>
           </el-upload>
@@ -117,7 +118,7 @@
     data() {
       return {
         saveBtnDisabled: false,
-        saveVideoBtnDisabled:false,
+        saveVideoBtnDisabled: false,
         courseId: '',//课程id
         chapterVideoList: [],
         chapter: { //封装章节数据
@@ -129,7 +130,7 @@
           sort: 0,
           free: 0,
           videoSourceId: '',
-          videoOriginalName:''//视频名称
+          videoOriginalName: ''//视频名称
         },
         dialogChapterFormVisible: false,//章节弹框
         dialogVideoFormVisible: false, //小节弹框
@@ -158,7 +159,7 @@
       handleUploadExceed() {
         this.$message.warning('想要重新上传视频，请先删除已上传的视频')
       },
-      handleVodRemove(){
+      handleVodRemove() {
         //调用接口的删除视频的方法
         video.deleteAliyunvod(this.video.videoSourceId)
           .then(response => {
@@ -176,8 +177,8 @@
             this.video.videoOriginalName = ''
           })
       },
-      beforeVodRemove(){
-        return this.$confirm(`确定移除 ${ file.name }？`);
+      beforeVodRemove() {
+        return this.$confirm(`确定移除 ${file.name}？`);
       },
 
       //==============================小节操作====================================
@@ -213,18 +214,18 @@
         //设置课程id
         this.video.courseId = this.courseId
         video.addVideo(this.video).then(response => {
-            //关闭弹框
-            this.dialogVideoFormVisible = false
-            //提示
-            this.$message({
-              type: 'success',
-              message: '添加小节成功!'
-            })
-            //刷新页面
-            this.getChapterVideo()
-          //重置
-          this.video = {};
+          //关闭弹框
+          this.dialogVideoFormVisible = false
+          //提示
+          this.$message({
+            type: 'success',
+            message: '添加小节成功!'
           })
+          //重置video
+          this.video = {};
+          //刷新页面
+          this.getChapterVideo()
+        })
       },
       saveOrUpdateVideo() {
         this.addVideo()
@@ -316,11 +317,11 @@
           })
       },
       previous() {
-        this.$router.push({ path: '/course/info/' + this.courseId })
+        this.$router.push({path: '/course/info/' + this.courseId})
       },
       next() {
         //跳转到第二步
-        this.$router.push({ path: '/course/publish/' + this.courseId })
+        this.$router.push({path: '/course/publish/' + this.courseId})
       }
     }
   }
