@@ -29,7 +29,7 @@ public class CrmBannerServiceImpl extends ServiceImpl<CrmBannerMapper, CrmBanner
         QueryWrapper<CrmBanner> wrapper = new QueryWrapper<>();
         wrapper.orderByDesc("id");
         //last方法，拼接sql语句
-        wrapper.last("limit 2");
+        wrapper.last("limit 6");
         List<CrmBanner> list = baseMapper.selectList(null);
 
         return list;

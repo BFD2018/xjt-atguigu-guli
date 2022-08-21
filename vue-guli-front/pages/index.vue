@@ -31,16 +31,19 @@
           </header>
           <div>
             <article class="comm-course-list">
-              <ul class="of" id="bna">
-                <li v-for="course in eduList" :key="course.id" class="bna-item">
-                  <div class="cc-l-wrap">
+              <ul class="of" id="bna" style="width: 100%;display: grid;grid-template-columns: repeat(4,24%);column-gap: 15px;">
+                <li v-for="course in eduCourseList" :key="course.id"
+                    style="width: 100%;border: 1px solid #ddd;border-radius: 5px;margin-top: 20px;"
+                    class="bna-item">
+                  <div class="cc-l-wrap" style="width: 100%;margin: 0;">
                     <section class="course-img">
                       <img :src="course.cover" class="img-responsive" :alt="course.title" />
                       <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
+                        <a :href="'/course/' + course.id" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
                       </div>
                     </section>
-                    <div class="hLh30 txtOf mt10" style="font-size: 18px;font-weight: bold;color: #ff7f50;margin-top: 10px;margin-bottom: 10px;">
+                    <div class="hLh30 txtOf mt10" @click="$router.push('/course/' + course.id)"
+                         style="font-size: 18px;font-weight: bold;margin-top: 10px;margin-bottom: 10px;">
                       {{course.title}}
                     </div>
                     <section class="mt10 hLh20 of">
@@ -59,7 +62,7 @@
               <div class="clear"></div>
             </article>
             <section class="tac pt20">
-              <a href="#" title="全部课程" class="comm-btn c-btn-2">全部课程</a>
+              <a href="/course" title="全部课程" class="comm-btn c-btn-2">全部课程</a>
             </section>
           </div>
         </section>
@@ -103,7 +106,7 @@
               <div class="clear"></div>
             </article>
             <section class="tac pt20">
-              <a href="#" title="全部讲师" class="comm-btn c-btn-2">全部讲师</a>
+              <a href="/teacher" title="全部讲师" class="comm-btn c-btn-2">全部讲师</a>
             </section>
           </div>
         </section>
@@ -134,7 +137,7 @@ export default {
 
       //banner数组
       bannerList: [],
-      eduList: [],
+      eduCourseList: [],
       teacherList: []
     };
   },
@@ -148,7 +151,8 @@ export default {
     //查询热门课程和名师
     getHotCourseTeacher() {
       index.getIndexData().then(response => {
-        this.eduList = response.data.data.eduList;
+        console.log(response);
+        this.eduCourseList = response.data.data.eduList;
         this.teacherList = response.data.data.teacherList;
       });
     },
@@ -162,25 +166,5 @@ export default {
 };
 </script>
 <style scoped>
-  #bna{
-    width: 100%;
-    display: grid;
-    /* 声明列的宽度,数字3表示的重复3次，即有3列宽度为200px*/
-    grid-template-columns: repeat(4,23%);
-    /* 声明行间距和列间距 */
-    grid-gap: 20px;
-  }
-  .bna-item{
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  .bna-item .cc-l-wrap{
-    width: 100%;
-  }
-  .bna-item .img-responsive{
-    width: 100%;
-    height: auto;
-  }
+
 </style>

@@ -5,6 +5,7 @@
       <img src="~/assets/img/cart_setp2.png" class="fr">
       <div class="clear"></div>
     </div>
+
     <form name="flowForm" id="flowForm" method="post" action="">
       <table class="GoodList">
         <tbody>
@@ -24,7 +25,8 @@
         <tr class="good">
           <td class="name First">
             <a target="_blank" :href="'https://localhost:3000/course/'+order.courseId">
-              <img :src="order.courseCover"></a>
+              <img :src="order.courseCover">
+            </a>
             <div class="goodInfo">
               <input type="hidden" class="ids ids_14502" value="14502">
               <a target="_blank" :href="'https://localhost:3000/course/'+ order.courseId">{{order.courseTitle}}</a>
@@ -70,12 +72,13 @@
 </template>
 <script>
   import ordersApi from '@/api/orders'
+
   export default {
     asyncData({ params, error }) {
       return ordersApi.getOrdersInfo(params.oid)
         .then(response => {
           return {
-            order: response.data.data.item
+            order: response.data.data.order
           }
         })
     },

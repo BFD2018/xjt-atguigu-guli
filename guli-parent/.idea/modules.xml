@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/service/service-cms/service-cms.iml" filepath="$PROJECT_DIR$/service/service-cms/service-cms.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-edu/service-edu.iml" filepath="$PROJECT_DIR$/service/service-edu/service-edu.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-msm/service-msm.iml" filepath="$PROJECT_DIR$/service/service-msm/service-msm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service-order/service-order.iml" filepath="$PROJECT_DIR$/service/service-order/service-order.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-oss/service-oss.iml" filepath="$PROJECT_DIR$/service/service-oss/service-oss.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-ucenter/service-ucenter.iml" filepath="$PROJECT_DIR$/service/service-ucenter/service-ucenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-vod/service-vod.iml" filepath="$PROJECT_DIR$/service/service-vod/service-vod.iml" />

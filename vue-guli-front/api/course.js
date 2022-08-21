@@ -22,6 +22,21 @@ export default {
       url: '/eduservice/coursefront/getFrontCourseInfo/'+id,
       method: 'get'
     })
+  },
+  //课程评论列表
+  getCourseComments(cid) {
+    return request({
+      url: '/eduservice/comment/getCommentById/'+cid,
+      method: 'get'
+    })
+  },
+  //课程评论列表
+  addCourseComment(commentObj) {
+    return request({
+      url: '/eduservice/comment/addComment',
+      method: 'post',
+      data:commentObj
+    })
   }
 
 }

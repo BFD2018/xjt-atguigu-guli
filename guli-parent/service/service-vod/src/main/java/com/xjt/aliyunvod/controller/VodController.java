@@ -62,7 +62,7 @@ public class VodController {
 
     //根据视频id获取视频凭证
     @GetMapping("/getPlayAuth/{id}")
-    public R getPlayAuth(@PathVariable String id) {
+    public R getPlayAuth(@PathVariable("id") String id) {
         try {
             //创建初始化对象
             DefaultAcsClient client =

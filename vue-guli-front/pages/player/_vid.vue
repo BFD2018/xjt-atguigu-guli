@@ -11,12 +11,12 @@
   </div>
 </template>
 <script>
-  import vod from '@/api/vod'
+  import vodApi from '@/api/vod'
 
   export default {
-    layout: 'video',//应用video布局
+    layout: 'video',  //应用video布局
     asyncData({ params, error }) {
-      return vod.getPlayAuth(params.vid)
+      return vodApi.getPlayAuth(params.vid)
         .then(response => {
           console.log(response);
           return {
