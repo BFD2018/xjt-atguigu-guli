@@ -155,6 +155,8 @@
         this.video.videoSourceId = response.data.videoId
         //上传视频名称赋值
         this.video.videoOriginalName = file.name
+
+        this.fileList = [];
       },
       handleUploadExceed() {
         this.$message.warning('想要重新上传视频，请先删除已上传的视频')

@@ -1,4 +1,4 @@
-package com.xjt.eduservice;
+package com.xjt.statistics;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -6,15 +6,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-
-@EnableDiscoveryClient          //在客户端微服务启动类中添加注解
-@EnableFeignClients         //feign调用
-@ComponentScan("com.xjt")   //默认扫描启动类所在包及其子包（这里我们让它扫描所有名称为 com.xjt 的包）
-@MapperScan("com.xjt.eduservice.mapper")
 @SpringBootApplication
-public class MyGuLiEduApplication {
+@ComponentScan(basePackages = {"com.xjt"})
+@EnableDiscoveryClient
+@EnableFeignClients
+@MapperScan("com.xjt.statistics.mapper")
+@EnableScheduling
+public class StatisticsApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(MyGuLiEduApplication.class,args);
+        SpringApplication.run(StatisticsApplication.class, args);
     }
 }

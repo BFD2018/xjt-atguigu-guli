@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/infrastructure/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/infrastructure/api-gateway/api-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common-utils/common-utils.iml" filepath="$PROJECT_DIR$/common/common-utils/common-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/guli-parent.iml" filepath="$PROJECT_DIR$/guli-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/infrastructure/infrastructure.iml" filepath="$PROJECT_DIR$/infrastructure/infrastructure.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/service-base/service-base.iml" filepath="$PROJECT_DIR$/common/service-base/service-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-cms/service-cms.iml" filepath="$PROJECT_DIR$/service/service-cms/service-cms.iml" />
@@ -12,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/service/service-msm/service-msm.iml" filepath="$PROJECT_DIR$/service/service-msm/service-msm.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-order/service-order.iml" filepath="$PROJECT_DIR$/service/service-order/service-order.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-oss/service-oss.iml" filepath="$PROJECT_DIR$/service/service-oss/service-oss.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service-statistics/service-statistics.iml" filepath="$PROJECT_DIR$/service/service-statistics/service-statistics.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-ucenter/service-ucenter.iml" filepath="$PROJECT_DIR$/service/service-ucenter/service-ucenter.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-vod/service-vod.iml" filepath="$PROJECT_DIR$/service/service-vod/service-vod.iml" />
     </modules>

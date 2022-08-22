@@ -108,4 +108,9 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, UcenterMember> 
 
         return insert>0;
     }
+
+    @Override
+    public Integer countRegisterDay(String day) {
+        return memberMapper.countRegisterDay(day);
+    }
 }

@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@MapperScan("com.xjt.eduservice.mapper")
 @EnableTransactionManagement
 public class MybatisPlusConfig {
     /*分页插件*/
