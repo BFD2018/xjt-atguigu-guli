@@ -45,6 +45,9 @@ import org.springframework.web.util.pattern.PathPatternParser;
  * @author wangpeng
  * @date 2019/01/02
  */
+
+/*还可以使用springsecurity提供的跨域解决方案（推荐）*/
+
 //@Configuration
 public class CorsConfig {
 //    @Bean
