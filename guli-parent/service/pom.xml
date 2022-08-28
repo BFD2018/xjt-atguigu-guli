@@ -20,6 +20,7 @@
         <module>service-msm</module>
         <module>service-order</module>
         <module>service-statistics</module>
+        <module>service-acl</module>
     </modules>
 
     <dependencies>
@@ -39,10 +40,14 @@
         </dependency>
 
         <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>

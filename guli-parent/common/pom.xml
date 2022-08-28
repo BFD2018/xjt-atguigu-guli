@@ -14,6 +14,7 @@
     <modules>
         <module>service-base</module>
         <module>common-utils</module>
+        <module>my-springsecurity</module>
     </modules>
 
     <dependencies>
@@ -43,6 +44,11 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
         </dependency>
 
         <!--swagger-->

@@ -7,16 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service-oss" />
         <module name="service-cms" />
         <module name="service-order" />
         <module name="service-msm" />
         <module name="service-vod" />
         <module name="service-edu" />
         <module name="service-ucenter" />
-        <module name="common-utils" />
+        <module name="service-acl" />
         <module name="service-base" />
         <module name="api-gateway" />
-        <module name="service-oss" />
+        <module name="my-springsecurity" />
+        <module name="common-utils" />
         <module name="service-statistics" />
       </profile>
     </annotationProcessing>
@@ -26,7 +28,9 @@
       <module name="common-utils" target="1.8" />
       <module name="guli-parent" target="1.8" />
       <module name="infrastructure" target="1.8" />
+      <module name="my-springsecurity" target="1.8" />
       <module name="service" target="1.8" />
+      <module name="service-acl" target="1.8" />
       <module name="service-base" target="1.8" />
       <module name="service-cms" target="1.8" />
       <module name="service-edu" target="1.8" />
@@ -43,6 +47,8 @@
       <module name="api-gateway" options="-parameters" />
       <module name="common-utils" options="-parameters" />
       <module name="infrastructure" options="-parameters" />
+      <module name="my-springsecurity" options="-parameters" />
+      <module name="service-acl" options="-parameters" />
       <module name="service-base" options="-parameters" />
       <module name="service-cms" options="-parameters" />
       <module name="service-edu" options="-parameters" />
