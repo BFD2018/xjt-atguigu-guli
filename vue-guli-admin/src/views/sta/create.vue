@@ -21,7 +21,7 @@
   </div>
 </template>
 <script>
-  import staApi from '@/api/statistics'
+  import staApi from '@/api/sta'
 
   export default {
     data() {
@@ -43,7 +43,7 @@
               message: '生成数据成功!'
             })
             //跳转到图表显示页面
-            this.$router.push({path:'/statistics/show'})
+            this.$router.push({path:'/sta/show'})
           })
       }
     }

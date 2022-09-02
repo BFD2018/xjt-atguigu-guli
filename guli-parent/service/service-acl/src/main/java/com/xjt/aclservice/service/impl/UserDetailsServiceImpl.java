@@ -3,7 +3,7 @@ package com.xjt.aclservice.service.impl;
 import com.xjt.aclservice.entity.User;
 import com.xjt.aclservice.service.PermissionService;
 import com.xjt.aclservice.service.UserService;
-import com.xjt.security.entity.MyUserDetails;
+import com.xjt.security.entity.SecurityUser;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -50,7 +50,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         BeanUtils.copyProperties(user,curUser);
 
         List<String> authorities = permissionService.selectPermissionValueByUserId(user.getId());
-        MyUserDetails securityUser = new MyUserDetails(curUser);
+        SecurityUser securityUser = new SecurityUser(curUser);
         securityUser.setPermissionValueList(authorities);
         return securityUser;
     }

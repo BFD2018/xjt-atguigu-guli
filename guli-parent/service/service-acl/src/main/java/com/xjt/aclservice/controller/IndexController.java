@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.xjt.commonutils.R;
 import com.xjt.aclservice.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +25,8 @@ public class IndexController {
     @GetMapping("info")
     public R info(){
         //获取当前登录用户用户名
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
         Map<String, Object> userInfo = indexService.getUserInfo(username);
         return R.ok().data(userInfo);
     }

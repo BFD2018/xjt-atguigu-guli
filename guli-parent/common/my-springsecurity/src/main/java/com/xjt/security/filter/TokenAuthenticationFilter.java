@@ -33,7 +33,7 @@ public class TokenAuthenticationFilter extends BasicAuthenticationFilter {
     private TokenManager tokenManager;
     private RedisTemplate redisTemplate;
 
-    public TokenAuthenticationFilter(AuthenticationManager authManager, TokenManager tokenManager, RedisTemplate redisTemplate) {
+    public TokenAuthenticationFilter(AuthenticationManager authManager, TokenManager tokenManager,RedisTemplate redisTemplate) {
         super(authManager);
         this.tokenManager = tokenManager;
         this.redisTemplate = redisTemplate;

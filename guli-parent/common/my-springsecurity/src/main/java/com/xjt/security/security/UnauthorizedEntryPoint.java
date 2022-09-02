@@ -14,9 +14,6 @@ import java.io.IOException;
  * <p>
  * 未授权的统一处理方式
  * </p>
- *
- * @author qy
- * @since 2019-11-08
  */
 public class UnauthorizedEntryPoint implements AuthenticationEntryPoint {
 

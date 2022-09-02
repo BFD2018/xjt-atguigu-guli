@@ -11,15 +11,12 @@ import java.util.Date;
  * <p>
  * token管理
  * </p>
- *
- * @author qy
- * @since 2019-11-08
  */
 @Component
 public class TokenManager {
 
     private long tokenExpiration = 24*60*60*1000;
-    private String tokenSignKey = "123456";
+    private String tokenSignKey = "xiong123456";
 
     public String createToken(String username) {
         String token = Jwts.builder().setSubject(username)

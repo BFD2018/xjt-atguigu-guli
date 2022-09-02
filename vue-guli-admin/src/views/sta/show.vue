@@ -40,7 +40,7 @@
 </template>
 <script>
   import * as echarts from 'echarts';
-  import staApi from '@/api/statistics'
+  import staApi from '@/api/sta'
 
   export default {
     data() {

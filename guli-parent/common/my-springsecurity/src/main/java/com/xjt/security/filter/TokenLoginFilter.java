@@ -3,7 +3,7 @@ package com.xjt.security.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xjt.commonutils.R;
 import com.xjt.commonutils.ResponseUtil;
-import com.xjt.security.entity.MyUserDetails;
+import com.xjt.security.entity.SecurityUser;
 import com.xjt.security.entity.User;
 import com.xjt.security.security.TokenManager;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -25,9 +25,6 @@ import java.util.ArrayList;
  * <p>
  * 登录过滤器，继承UsernamePasswordAuthenticationFilter，对用户名密码进行登录校验
  * </p>
- *
- * @author qy
- * @since 2019-11-08
  */
 public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -68,7 +65,7 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
-        MyUserDetails user = (MyUserDetails) auth.getPrincipal();
+        SecurityUser user = (SecurityUser) auth.getPrincipal();
         String token = tokenManager.createToken(user.getCurrentUserInfo().getUsername());
         redisTemplate.opsForValue().set(user.getCurrentUserInfo().getUsername(), user.getPermissionValueList());
 
@@ -89,4 +86,3 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
         ResponseUtil.out(response, R.error());
     }
 }
-

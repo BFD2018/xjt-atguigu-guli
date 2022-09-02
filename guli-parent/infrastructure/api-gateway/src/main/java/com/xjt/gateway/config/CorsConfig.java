@@ -49,18 +49,18 @@ import org.springframework.web.util.pattern.PathPatternParser;
 /*还可以使用springsecurity提供的跨域解决方案（推荐）*/
 
 //@Configuration
-public class CorsConfig {
+//public class CorsConfig {
 //    @Bean
-    public CorsWebFilter corsFilter() {
-        CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedMethod("*");
-        config.addAllowedOrigin("*");
-        config.addAllowedHeader("*");
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(new PathPatternParser());
-        source.registerCorsConfiguration("/**", config);
-
-        return new CorsWebFilter(source);
-    }
-}
+//    public CorsWebFilter corsFilter() {
+//        CorsConfiguration config = new CorsConfiguration();
+//        config.addAllowedMethod("*");
+//        config.addAllowedOrigin("*");
+//        config.addAllowedHeader("*");
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(new PathPatternParser());
+//        source.registerCorsConfiguration("/**", config);
+//
+//        return new CorsWebFilter(source);
+//    }
+//}
 
