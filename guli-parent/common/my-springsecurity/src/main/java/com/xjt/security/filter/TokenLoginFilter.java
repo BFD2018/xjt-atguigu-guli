@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 /**
  * <p>
- * 登录过滤器，继承UsernamePasswordAuthenticationFilter，对用户名密码进行登录校验
+ * 登录过滤器，继承UsernamePasswordAuthenticationFilter，拦截请求/admin/acl/login 对用户名密码进行登录校验
  * </p>
  */
 public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
@@ -46,7 +46,9 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
         try {
             User user = new ObjectMapper().readValue(req.getInputStream(), User.class);
 
-            return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), new ArrayList<>()));
+            return authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(user.getUsername(),
+                            user.getPassword(), new ArrayList<>()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -54,7 +56,7 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
     }
 
     /**
-     * 登录成功
+     * 认证成功
      * @param req
      * @param res
      * @param chain
@@ -65,10 +67,13 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
+        // 认证成功后获取用户信息
         SecurityUser user = (SecurityUser) auth.getPrincipal();
+        // 生成token
         String token = tokenManager.createToken(user.getCurrentUserInfo().getUsername());
+        // 把用户名和权限列表放入redis
         redisTemplate.opsForValue().set(user.getCurrentUserInfo().getUsername(), user.getPermissionValueList());
-
+        // 返回token
         ResponseUtil.out(res, R.ok().data("token", token));
     }
 

@@ -23,6 +23,7 @@ public class TokenManager {
                 .setExpiration(new Date(System.currentTimeMillis() + tokenExpiration))
                 .signWith(SignatureAlgorithm.HS512, tokenSignKey)
                 .compressWith(CompressionCodecs.GZIP).compact();
+
         return token;
     }
 

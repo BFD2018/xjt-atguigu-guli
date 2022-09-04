@@ -2,11 +2,13 @@ package com.xjt.security.config;
 
 import com.xjt.security.filter.TokenAuthenticationFilter;
 import com.xjt.security.filter.TokenLoginFilter;
+import com.xjt.security.security.DefaultPasswordEncoder;
 import com.xjt.security.security.TokenLogoutHandler;
 import com.xjt.security.security.TokenManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,12 +30,18 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Autowired
+    private DefaultPasswordEncoder defaultPasswordEncoder;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .mvcMatchers("/admin/acl/login").permitAll()
+                // 静态资源，可匿名访问
+                .antMatchers(HttpMethod.GET, "/", "/*.html", "/**/*.html", "/**/*.css", "/**/*.js", "/profile/**").permitAll()
+                .antMatchers("/swagger-ui.html", "/swagger-resources/**", "/webjars/**", "/*/api-docs", "/druid/**").permitAll()
                 .mvcMatchers("/api/**").permitAll()
-                .mvcMatchers("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**").permitAll()
+
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .authorizeRequests()
@@ -47,6 +55,6 @@ public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
+        auth.userDetailsService(userDetailsService).passwordEncoder(defaultPasswordEncoder);
     }
 }

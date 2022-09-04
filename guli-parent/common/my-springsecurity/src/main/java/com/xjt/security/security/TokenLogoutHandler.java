@@ -8,6 +8,7 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * <p>
@@ -34,7 +35,11 @@ public class TokenLogoutHandler implements LogoutHandler {
             String userName = tokenManager.getUserFromToken(token);
             redisTemplate.delete(userName);
         }
-        ResponseUtil.out(response, R.ok());
+        try {
+            ResponseUtil.out(response, R.ok());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

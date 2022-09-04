@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  *  推荐用Spring Security5.x的 DelegatingPasswordEncoder 加密方案（{noop}123 ->明文密码   {Bcrypt}xxx ->加密密文）
  * </p>
  */
-//@Component
+@Component
 public class DefaultPasswordEncoder implements PasswordEncoder {
 
     public DefaultPasswordEncoder() {
